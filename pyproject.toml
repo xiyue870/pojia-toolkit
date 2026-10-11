@@ -1,0 +1,31 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pojia-toolkit"
+version = "1.0.0"
+description = "破甲工具箱 — 确定性路由的通用安全研究框架（逆向/破解/渗透/爬虫/外挂/破甲）"
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "MIT" }
+authors = [{ name = "曦月", url = "https://github.com/xiyue870" }]
+keywords = ["security", "reverse-engineering", "pentest", "crack", "router", "workflow", "破甲"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Topic :: Security",
+]
+
+[project.scripts]
+pojia = "pojia.cli.main:main"
+
+[project.urls]
+Homepage = "https://github.com/xiyue870/pojia-toolkit"
+
+[tool.setuptools]
+packages = ["pojia", "pojia.engine", "pojia.workflows", "pojia.cli", "pojia.data"]
+
+[tool.setuptools.package-data]
+"pojia.data" = ["*.json"]

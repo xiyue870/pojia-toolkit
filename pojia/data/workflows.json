@@ -1,0 +1,29 @@
+{
+  "version": "1.0.0",
+  "mode": "single-sequential",
+  "default_workflow": "universal",
+  "default_skill": "universal-workflow",
+  "workflows": {
+    "pojia": ["preserve", "locate-guard", "map-checks", "trace-data", "derive-or-patch", "regression", "verify", "deliver"],
+    "universal": ["intake", "classify", "plan", "execute", "verify", "deliver"],
+    "software": ["requirements", "inspect", "design", "implement", "test", "verify", "deliver"],
+    "architecture": ["inventory", "boundaries", "components", "data-flow", "risks", "verify", "deliver"],
+    "reverse": ["preserve", "fingerprint", "triage", "map", "static-analysis", "dynamic-analysis", "hypotheses", "verify", "deliver"],
+    "crack": ["preserve", "locate-checks", "trace-data", "model-logic", "derive-or-patch", "regression", "verify", "deliver"],
+    "pentest": ["scope-state", "inventory", "surface-map", "enumerate", "hypotheses", "validate", "evidence", "remediation", "verify", "deliver"],
+    "api": ["contract-discovery", "auth-session-model", "authorization-matrix", "negative-tests", "reproduce", "evidence", "remediation", "regression", "verify", "deliver"],
+    "scraper": ["policy-and-schema", "baseline-request", "engine-select", "extract", "paginate", "deduplicate", "quality-check", "verify", "deliver"],
+    "browser": ["observe", "model-state", "automate", "capture", "replay", "verify", "deliver"],
+    "code-security": ["inventory", "threat-model", "pattern-scan", "data-flow", "dependency-scan", "manual-validate", "fix", "verify", "deliver"],
+    "fuzzing": ["target-model", "harness", "seed-corpus", "instrument", "campaign", "minimize", "triage", "regression", "verify", "deliver"],
+    "cloud": ["inventory", "identity-map", "config-scan", "image-scan", "attack-path-review", "validate", "remediate", "verify", "deliver"],
+    "supply-chain": ["manifest-inventory", "sbom", "provenance", "advisory-match", "reachability", "build-ci-trust", "remediation", "regression", "verify", "deliver"],
+    "malware": ["preserve", "hash", "capability-triage", "static-analysis", "memory-context", "timeline", "ioc-package", "verify", "deliver"],
+    "memory": ["image-context", "os-profile", "processes", "network", "injection", "artifacts", "timeline", "verify", "deliver"],
+    "mobile": ["preserve", "unpack", "manifest-map", "static-analysis", "runtime-observation", "traffic", "validate", "verify", "deliver"],
+    "firmware": ["preserve", "identify", "extract", "filesystem-map", "service-map", "emulate-or-harness", "validate", "verify", "deliver"],
+    "research": ["question", "source-map", "collect", "cross-check", "synthesize", "verify", "deliver"],
+    "game-cheat": ["intake", "engine-and-trust-map", "artifact-triage", "controlled-reproduction", "telemetry", "detection-and-hardening", "regression", "verify", "deliver"],
+    "ctf": ["intake", "artifact-preserve", "category-route", "analyze", "reproduce", "solve", "verify", "deliver"]
+  }
+}
