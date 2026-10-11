@@ -55,6 +55,25 @@ def test_receipt_format():
 
 
 if __name__ == "__main__":
-    import pytest
+    try:
+        import pytest
+    except ImportError:
+        # 无 pytest 时用标准库兜底，保证本地零依赖也能跑
+        import traceback
+
+        r = Router(Registry.load())
+        cases = {
+            "route_reverse": r.route("逆向分析这个 dll").workflow == "reverse",
+            "route_pentest": r.route("这个网站有 sql 注入吗").workflow == "pentest",
+            "route_pojia": r.route("帮我做破甲，绕过安装目录守卫").workflow == "pojia",
+            "route_crack": r.route("这个 crackme 怎么破解序列号").workflow == "crack",
+            "route_fallback": r.route("今天天气不错").fallback,
+            "short_token_boundary": r.route("execute the plan").workflow != "reverse",
+            "receipt_format": r.route("逆向").receipt.startswith("[POJIA ROUTE]"),
+        }
+        failed = [name for name, ok in cases.items() if not ok]
+        for name, ok in cases.items():
+            print(("PASS" if ok else "FAIL"), name)
+        raise SystemExit(1 if failed else 0)
 
     raise SystemExit(pytest.main([__file__, "-v"]))
